@@ -10,6 +10,13 @@ pipeline {
       }
     }
   }
+  stages {
+    stage('TEST') {
+      steps {
+        sh 'echo "Hello"'
+      }
+    }
+  }
   post {
     always {
         junit(

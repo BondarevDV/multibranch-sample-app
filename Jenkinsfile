@@ -4,23 +4,15 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
-    stage('Build') {
+    stage('stage-1') {
       steps {
-        sh './gradlew clean check --no-daemon'
+        sh 'echo stage-1'
       }
     }
-    stage('TEST') {
+    stage('stage-2') {
       steps {
-        sh 'echo "Hello"'
+        sh 'echo stage-2'
       }
-    }
-  }
-  post {
-    always {
-        junit(
-          allowEmptyResults: true, 
-          testResults: '**/build/test-results/test/*.xml'
-        )
     }
   }
 }

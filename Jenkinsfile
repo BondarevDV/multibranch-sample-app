@@ -9,8 +9,6 @@ pipeline {
         sh './gradlew clean check --no-daemon'
       }
     }
-  }
-  stages {
     stage('TEST') {
       steps {
         sh 'echo "Hello"'
